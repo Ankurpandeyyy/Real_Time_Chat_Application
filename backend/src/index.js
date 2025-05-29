@@ -7,7 +7,7 @@ import { connectDB } from "./lib/db.js";
 import cors from "cors";
 import {app , server} from "./lib/socket.js";
 
-import path from "path";  // before deployment
+import path from "path";  // for deployment
 
 dotenv.config()
 //const app = express();  // it is already defined in socket.js file
@@ -17,8 +17,13 @@ const __dirname = path.resolve();  // at the time of deployment
 
 app.use(express.json());
 app.use(cookieParser()); //parsing cookies or grabing value from cookies
+
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://real-time-chat-application-gun1.onrender.com", // or your frontend domain if it's separate
+];
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: allowedOrigins,        //"http://localhost:5173",
     credentials: true
 }))
 app.use("/api/auth",authRoutes);
