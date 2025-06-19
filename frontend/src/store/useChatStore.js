@@ -4,11 +4,11 @@ import { axiosInstance } from "../lib/axios";
 import { useAuthStore } from "./useAuthStore";
 
 export const useChatStore = create((set, get) => ({
-  messages: [],
-  users: [],
-  selectedUser: null,
-  isUsersLoading: false,
-  isMessagesLoading: false,
+  messages: [],    // Chat messages between the user and the selected person
+  users: [],       // List of users available for chat
+  selectedUser: null,   // Currently selected user to chat with
+  isUsersLoading: false, // Loading state for fetching users
+  isMessagesLoading: false,  // Loading state for fetching messages
 
   getUsers: async () => {
     set({ isUsersLoading: true });

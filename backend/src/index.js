@@ -18,12 +18,13 @@ const __dirname = path.resolve();  // at the time of deployment
 app.use(express.json());
 app.use(cookieParser()); //parsing cookies or grabing value from cookies
 
-const allowedOrigins = [
-  "http://localhost:5173",
-  "https://real-time-chat-application-gun1.onrender.com", // or your frontend domain if it's separate
-];
+// const allowedOrigins = [
+//   "http://localhost:5173",
+//   "https://real-time-chat-application-gun1.onrender.com", // or your frontend domain if it's separate
+// ];
 app.use(cors({
-    origin: allowedOrigins,        //"http://localhost:5173",
+    //origin:"http://localhost:5173",
+    origin:"real-time-chat-application-tau-orcin.vercel.app",
     credentials: true
 }))
 app.use("/api/auth",authRoutes);
@@ -33,7 +34,7 @@ if(process.env.NODE_ENV ==="production"){
     app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
     app.get("*",(req,res)=>{
-        res.sendFile(path.join(__dirname, "../frontend" ,"dist" ,"index.html"));
+        res.sendFile(path.join(__dirname, "../frontend","dist","index.html"));
     })
 }
 
