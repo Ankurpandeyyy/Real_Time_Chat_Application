@@ -24,7 +24,7 @@ app.use(cookieParser()); //parsing cookies or grabing value from cookies
 // ];
 app.use(cors({
     //origin:"http://localhost:5173",
-    origin:"https://real-time-chat-application-tau-orcin.vercel.app/",
+    origin:"https://real-time-chat-application-tau-orcin.vercel.app",
     credentials: true
 }))
 app.use("/api/auth",authRoutes);
