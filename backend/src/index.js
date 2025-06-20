@@ -16,16 +16,17 @@ const port = process.env.PORT ;
 const __dirname = path.resolve();  // at the time of deployment
 
 app.use(express.json());
-app.use(cookieParser()); //parsing cookies or grabing value from cookies
+ //parsing cookies or grabing value from cookies
 
 // const allowedOrigins = [
 //   "http://localhost:5173",
 //   "https://real-time-chat-application-gun1.onrender.com", // or your frontend domain if it's separate
 // ];
 app.use(cors({
-    origin:["http://localhost:5173","https://real-time-chat-application-gun1.onrender.com"],
+    origin:["http://localhost:5173","https://real-time-chat-application-8dzw.vercel.app"],
     credentials: true
 }))
+app.use(cookieParser());
 app.use("/api/auth",authRoutes);
 app.use("/api/messages",messageRoutes);
 
