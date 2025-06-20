@@ -23,7 +23,7 @@ app.use(cookieParser()); //parsing cookies or grabing value from cookies
 //   "https://real-time-chat-application-gun1.onrender.com", // or your frontend domain if it's separate
 // ];
 app.use(cors({
-    origin:"http://localhost:5173",
+    origin:["http://localhost:5173","https://real-time-chat-application-gun1.onrender.com"],
     credentials: true
 }))
 app.use("/api/auth",authRoutes);
