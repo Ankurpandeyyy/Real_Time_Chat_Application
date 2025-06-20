@@ -16,7 +16,7 @@ const port = process.env.PORT ;
 const __dirname = path.resolve();  // at the time of deployment
 
 app.use(express.json());
-app.use(cookieParser()); //parsing cookies or grabing value from cookies
+//app.use(cookieParser()); //parsing cookies or grabing value from cookies
 
 // const allowedOrigins = [
 //   "http://localhost:5173",
@@ -25,8 +25,10 @@ app.use(cookieParser()); //parsing cookies or grabing value from cookies
 app.use(cors({
     //origin:"http://localhost:5173",
     origin:"https://real-time-chat-application-tau-orcin.vercel.app",
-    credentials: true
+    credentials: true,
 }))
+app.use(cookieParser()); // must be after cors
+
 app.use("/api/auth",authRoutes);
 app.use("/api/messages",messageRoutes);
 
