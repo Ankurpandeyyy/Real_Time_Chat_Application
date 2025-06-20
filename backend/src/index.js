@@ -30,6 +30,9 @@ app.use(cookieParser());
 app.use("/api/auth",authRoutes);
 app.use("/api/messages",messageRoutes);
 
+// This is needed for cookies to work behind proxies (like Render)
+app.set("trust proxy", 1);
+
 if(process.env.NODE_ENV ==="production"){
     app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
