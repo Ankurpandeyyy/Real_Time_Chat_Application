@@ -13,7 +13,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
     cors: {
-        origin: "https://real-time-chat-application-tau-orcin.vercel.app",
+        origin: ["https://real-time-chat-application-tau-orcin.vercel.app","http://localhost:5173"],
         credentials: true,
     },
 });
