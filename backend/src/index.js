@@ -14,7 +14,7 @@ dotenv.config()
 
 const port = process.env.PORT ;
 const __dirname = path.resolve();  // at the time of deployment
-
+app.use(cookieParser());
 app.use(express.json());
  //parsing cookies or grabing value from cookies
 
@@ -24,14 +24,14 @@ app.use(express.json());
 // ];
 app.use(cors({
     origin:["http://localhost:5173","https://real-time-chat-application-8dzw.vercel.app"],
-    credentials: true
+    credentials: true,
 }))
-app.use(cookieParser());
+
 app.use("/api/auth",authRoutes);
 app.use("/api/messages",messageRoutes);
 
 // This is needed for cookies to work behind proxies (like Render)
-app.set("trust proxy", 1);
+//app.set("trust proxy", 1);
 
 if(process.env.NODE_ENV ==="production"){
     app.use(express.static(path.join(__dirname, "../frontend/dist")));
