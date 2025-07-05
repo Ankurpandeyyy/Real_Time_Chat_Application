@@ -23,7 +23,7 @@ app.use(express.json());
 //   "https://real-time-chat-application-gun1.onrender.com", // or your frontend domain if it's separate
 // ];
 app.use(cors({
-    origin:["http://localhost:5173","https://real-time-chat-application-8dzw.vercel.app"],
+    origin:["http://localhost:5173"],
     credentials: true,
 }))
 
